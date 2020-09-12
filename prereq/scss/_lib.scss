@@ -1,0 +1,66 @@
+////変数/////
+$gray-dark:#707070;
+$bgc-1:#A193861F;
+$bgc-2: #A1938689;
+
+
+
+////mixin/////
+
+@mixin pc {
+    @media (min-width: 960px){
+        @content;
+    }
+}
+@mixin tab {
+    @media (max-width: 959px){
+        @content;
+    }
+}
+@mixin sp {
+    @media (max-width: 600px){
+        @content;
+    }
+}
+////共通/////
+html {
+    font-size: 62.5%;
+}
+body {
+    font-size: 16px;
+    line-height: 1.19;
+    font-family: Roboto Mono for Powerline;
+    
+}
+.title{
+    color: $gray-dark;
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin-bottom:  6px;
+    @include sp {
+        margin-bottom: 60px;
+    }
+
+    &:after {
+        display: inline-block;
+        content: "";
+        width: 6.4em;
+        border-bottom: 1px solid;
+        margin-left: 4.5rem;
+    }
+}
+
+.inner {
+    margin: 0 auto;
+    width: 100% - 8.35% * 2;
+    padding: 260px 0 70px;
+    @include tab {
+        padding-top: 200px;
+    }
+    @include sp {
+        padding: 60px 0;
+        width: 90%;
+    }
+}
